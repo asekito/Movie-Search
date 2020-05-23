@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import config from "../../config.js";
 
 const Search = () => {
   const [query, setQuery] = useState("");
-  //create state for movies and update state when appropriate
   const [movies, setMovies] = useState([]);
 
   const searchMovies = async (e) => {
     e.preventDefault();
 
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=KEYHERE&language=en-US&query=${query}&page=1&include_adult=false`;
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${config.MOVIE_API}&language=en-US&query=${query}&page=1&include_adult=false`;
 
     try {
       const res = await fetch(url);
